@@ -1,0 +1,172 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>project</title>
+    <style>
+        body{
+            background-image: url('image.jpg');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        .content{
+            background-color: #5d3d3d85;
+            backdrop-filter: blur(06px);
+            border-radius: 20px;
+            height: 250px;
+            text-align: center;
+            margin: 15%;
+            margin-top: 13%;
+            font-size: 20px;
+            font-weight: 600;
+            font-family: cursive;
+            color: black;
+            padding-top: 50px;
+            
+
+        }
+        #new-quote{
+            width: 230px;
+            height: 40px;
+            border-radius: 20px;
+            margin-top: 80px;
+            background-color: rgba(212, 94, 202, 0.755);
+            border: 1px solid rgb(235, 78, 222);
+            font-weight: 900;
+            color: #fff;
+            transition: .3s;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #new-quote:hover{
+            background-color: #fff;
+            color: rgb(235, 78, 222)
+        }
+        #new-quote:active{
+            background-color: rgba(235, 78, 222, 0.234);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <p id="quote">Quotes</p>
+        <button id="new-quote">New Quote</button>
+        <script>
+            const quotes = [
+  "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+  "The only way to do great work is to love what you do.",
+  "In the middle of difficulty lies opportunity.",
+  "The future belongs to those who believe in the beauty of their dreams.",
+  "Believe you can and you're halfway there.",
+  "The greatest glory in living lies not in never falling, but in rising every time we fall.",
+ "The only way to do great work is to love what you do.",
+"In the middle of difficulty lies opportunity.",
+"The future belongs to those who believe in the beauty of their dreams.",
+"Believe you can and you're halfway there.",
+"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+"You must be the change you wish to see in the world.",
+"Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+"The only thing we have to fear is fear itself.",
+"Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.",
+"Do one thing every day that scares you.",
+"Well done is better than well said.",
+"The journey of a thousand miles begins with one step.",
+"The only limit to our realization of tomorrow will be our doubts of today.",
+"The best way to find yourself is to lose yourself in the service of others.",
+"Happiness is not something ready made. It comes from your own actions.",
+"The greatest glory in living lies not in never falling, but in rising every time we fall.",
+"The only way to do great work is to love what you do.",
+"In the middle of difficulty lies opportunity.",
+"The future belongs to those who believe in the beauty of their dreams.",
+"Believe you can and you're halfway there.",
+"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+"You must be the change you wish to see in the world.",
+"Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+"The only thing we have to fear is fear itself.",
+"Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.",
+"Do one thing every day that scares you.",
+"Well done is better than well said.",
+"The journey of a thousand miles begins with one step.",
+"The only limit to our realization of tomorrow will be our doubts of today.",
+"The best way to find yourself is to lose yourself in the service of others.",
+"Happiness is not something ready made. It comes from your own actions.",
+"The greatest glory in living lies not in never falling, but in rising every time we fall.",
+"The only way to do great work is to love what you do.",
+"In the middle of difficulty lies opportunity.",
+"The future belongs to those who believe in the beauty of their dreams.",
+"Believe you can and you're halfway there.",
+"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+"You must be the change you wish to see in the world.",
+"Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+"The only thing we have to fear is fear itself.",
+"Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.",
+"Do one thing every day that scares you." ,
+"Well done is better than well said.",
+"The journey of a thousand miles begins with one step.",
+"The only limit to our realization of tomorrow will be our doubts of today.",
+"The best way to find yourself is to lose yourself in the service of others.",
+"Happiness is not something ready made. It comes from your own actions.",
+"The greatest glory in living lies not in never falling, but in rising every time we fall.",
+"The only way to do great work is to love what you do.",
+"In the middle of difficulty lies opportunity.",
+"The future belongs to those who believe in the beauty of their dreams.",
+"Believe you can and you're halfway there.",
+"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+"You must be the change you wish to see in the world.",
+"Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+"The only thing we have to fear is fear itself.",
+"Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.",
+"Do one thing every day that scares you.",
+"Well done is better than well said.",
+"The journey of a thousand miles begins with one step.",
+"The only limit to our realization of tomorrow will be our doubts of today.",
+"The best way to find yourself is to lose yourself in the service of others.",
+"Happiness is not something ready made. It comes from your own actions.",
+"The greatest glory in living lies not in never falling, but in rising every time we fall.",
+"The only way to do great work is to love what you do.",
+"In the middle of difficulty lies opportunity.",
+"The future belongs to those who believe in the beauty of their dreams.",
+"Believe you can and you're halfway there.",
+"The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.",
+"You must be the change you wish to see in the world.",
+"Spread love everywhere you go. Let no one ever come to you without leaving happier.",
+"The only thing we have to fear is fear itself.",
+"Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that.",
+"Do one thing every day that scares you.",
+"Well done is better than well said.",
+"The journey of a thousand miles begins with one step.",
+"The only limit to our realization of tomorrow will be our doubts of today.",
+];
+
+// Function to get a random quote
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  return quotes[randomIndex];
+}
+
+// Get the element to display the quote
+const quoteElement = document.getElementById("quote");
+
+// Function to update the quote
+function updateQuote() {
+  quoteElement.textContent = getRandomQuote();
+}
+
+// Initial quote
+updateQuote();
+
+// Event listener for the button
+const button = document.getElementById("new-quote");
+button.addEventListener("click", updateQuote)
+        </script>
+
+    </div>
+
+</body>
+</html>
